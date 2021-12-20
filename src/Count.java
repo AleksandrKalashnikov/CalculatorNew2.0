@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class Count {
 
     /*
@@ -21,7 +23,11 @@ public class Count {
                 res = a / b;
                 return res;
             default:
-                System.err.println("Не допустимый оператор");
+                try {
+                    throw new IOException();
+                }catch (IOException e) {
+                    System.err.println("Неверный оператор. Принимаются только (+, -, /, *)");
+                }
         }
         return res;
     }

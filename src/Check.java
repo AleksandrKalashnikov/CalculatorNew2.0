@@ -1,3 +1,4 @@
+
 public class Check {
 
     /*
@@ -8,19 +9,22 @@ public class Check {
      */
 
     public static boolean checkArab (String arrArab) {
+
         String[] strArab = {"1","2","3","4","5","6","7","8","9","10"};     // Массив из арабских чисел
-        for (String strArab1 : strArab) {   // Через цикл обрабатываем весь массив
-            if (arrArab.equals(strArab1)) { // Сравниваем через метод equals() и возвращаем елемент массива если было найдено совпадение
+        for (String strArabF : strArab) {   // Через цикл обрабатываем весь массив
+            if (arrArab.equals(strArabF)) { // Сравниваем через метод equals() и возвращаем елемент массива если было найдено совпадение
                 return true;
             }
         }
         return false;
     }
 
-    public static boolean checkRome (String arrStr) {
+
+    public static boolean checkRome (String arrRome) {
+
         String[] strRome = {"I","II","III","IV","V","VI","VII","VIII","IX","X"};    // Массив из римских чисел
-        for (String strRome1: strRome) {
-            if(arrStr.equals(strRome1)) {
+        for (String strRomeF: strRome) {
+            if(arrRome.equals(strRomeF)) {
                 return true;
             }
         }

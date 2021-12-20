@@ -1,6 +1,5 @@
+import java.io.IOException;
 import java.util.Scanner;
-import java.util.InputMismatchException;
-import java.lang.ArrayIndexOutOfBoundsException;
 
 public class Calculator {
 
@@ -8,7 +7,7 @@ public class Calculator {
     Основной класс Calculator. Здесь принимаются и выводятся данные
      */
 
-    public static void main (String[] args) {
+    public static void main (String[] args) throws Exception {
 
         System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
         System.out.println("Калькулятор умеет работать с арабскими и римскими числами от 1 до 10 (от I до X)");
@@ -24,16 +23,24 @@ public class Calculator {
         String op = arrIn[1];   //  Присваиваем переменной второй элемент массива arrIn
         String b = arrIn[2];    // Присваиваем переменной третий элемент массива arrIn
 
-        if (arrIn.length != 3) {        // Error если длинна массива не равна 3
-            System.err.println("Error");
+
+        if (arrIn.length != 3) {
+            try {
+                throw new IOException();
+            } catch (IOException e) {
+                System.err.println("Неверный ввод! Принимаются только два операнда и один оператор (+, -, /, *)");
+            }
         }
+
 
         if (Check.checkArab(a) && Check.checkArab(b) && op.length() == 1) {     // Обращаемся к классу Check и метод checkArab проверяем арабские числа
             System.out.println("Результат: " + Count.count(Integer.parseInt(a), Integer.parseInt(b), op.charAt(0))); // Преобразуем операнды из типа String в int, далее в классе Count, через метод count считаем
         }                                                                                                            //
         else if (Check.checkRome(a) && Check.checkRome(b) && op.length() == 1) {    // Обращаемся к классу Check и метод checkRome проверяем римские числа
-            System.out.println("Результат: " + ToRome.toRome(Count.count(ToArab.toArab(a), +
-                    ToArab.toArab(b), op.charAt(0)))); // Через класс ToArab и метод toArab преобразуем римские в арабские. Далее в классе Count, через метод count считаем
-        }                                              // Ответ преобразуем через класс ToRome и метод toRome арабские в римские
+            System.out.println("Результат: " + ToRome.toRome(Count.count(ToArab.toArab(a), + ToArab.toArab(b), op.charAt(0))));
+            // Через класс ToArab и метод toArab преобразуем римские в арабские. Далее в классе Count, через метод count считаем
+            // Ответ преобразуем через класс ToRome и метод toRome арабские в римские
+        }
+
     }
 }

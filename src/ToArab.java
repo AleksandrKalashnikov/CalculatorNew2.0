@@ -1,3 +1,5 @@
+
+
 public class ToArab {
 
     /*
@@ -26,6 +28,8 @@ public class ToArab {
             return 9;
         } else if (rome.equals("X")) {
             return 10;
+        } else {
+            System.err.println("dad32d");
         }
         return -1;
     }
