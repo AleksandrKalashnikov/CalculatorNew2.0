@@ -11,7 +11,7 @@ public class Check {
     public static boolean checkArab (String arrArab) {
 
         String[] strArab = {"1","2","3","4","5","6","7","8","9","10"};     // Массив из арабских чисел
-        for (String strArabF : strArab) {   // Через цикл обрабатываем весь массив
+        for (String strArabF : strArab) {   // Через цикл for-each обрабатываем весь массив
             if (arrArab.equals(strArabF)) { // Сравниваем через метод equals() и возвращаем елемент массива если было найдено совпадение
                 return true;
             }
